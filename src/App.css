@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+:root {
+  --main-font: "Montserrat", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div .container {
+  height: 600px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+div .item {
+  width: 506px;
+  height: 333px;
+  background-color: #222831;
+  border-radius: 25px;
+}
+div .col1 {
+  border-radius: 30px;
+  /* background-image: url("./Rectangle.png"); */
+  background: linear-gradient(
+    136deg,
+    rgba(136, 235, 239, 0.9) 0%,
+    rgba(83, 91, 230, 0.9) 100%
+  );
+}
+ul {
+  list-style-type: none;
+}
+ul > li {
+  position: relative;
+  left: -20px;
+}
+.day {
+  margin-top: 25px;
+
+  color: #fff;
+  font-family: var(--main-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.date {
+  color: #fff;
+  margin-top: 5px;
+
+  font-family: var(--main-font);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.city {
+  margin-top: 5px;
+  color: #fff;
+  font-family: var(--main-font);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.icon {
+  margin-top: 95px;
+}
+.temp {
+  margin-top: 5px;
+  color: #fff;
+  font-family: var(--main-font);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.weather {
+  color: #fff;
+  font-family: var(--main-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.App-link {
-  color: #61dafb;
+div .details {
+  padding: 10px;
+  margin-top: 25px;
+  color: #fff;
+  font-family: var(--main-font);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+div .api {
+  padding: 10px;
+  margin-top: 25px;
+  color: #fff;
+  text-align: right;
+  font-family: var(--main-font);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+div .forecast {
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  background-color: #272e37;
+  justify-content: center;
+  border-radius: 12px;
+  margin-top: 10px;
+  width: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.forecast-block {
+  font-family: var(--main-font);
+
+  text-align: center;
+  background-color: #272e37;
+  border-radius: 5px;
+  width: 50px;
+  height: 100px;
+  box-shadow: 1px 2px 4px 0px #222831;
+  font-style: normal;
+}
+.day1 {
+  background-color: #fff;
+}
+div .forecast-days {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.forecast-day {
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
+}
+.forecast-temps {
+  color: #fff;
+  text-align: center;
+  font-family: var(--main-font);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.forecast-temp {
+  color: #000;
+  text-align: center;
+  font-family: var(--main-font);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.forecast-icon {
+  text-align: center;
+  margin-bottom: 10px;
+   padding: 5px;
+}
+.current {
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 200px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background: linear-gradient(
+    131deg,
+    rgba(144, 217, 224, 0.9) 0%,
+    rgba(84, 96, 230, 0.9) 100%
+  );
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  font-family: var(--main-font);
+  font-size: 12px;
+  font-style:normal;
+  font-weight: 400;
+  line-height: normal;
 }
