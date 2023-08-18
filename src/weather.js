@@ -1,8 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 export default function Weather() {
+  const [ready, setReady] = useState(false);
+  const [temp, setTemp] = useState(29);
+  setReady(true);
+}
+if (ready) {
   return (
     <div>
       <div className="item row">
@@ -82,7 +88,7 @@ export default function Weather() {
                 />
               </svg>
             </li>
-            <li className="temp">29 °C</li>
+            <li className="temp">{temp} °C</li>
             <li className="weather">Sunny</li>
           </ul>
         </div>
@@ -265,10 +271,43 @@ export default function Weather() {
             </span>
           </div>
           <div>
-            <button className="current">Change Location</button>
+            <form className="location">
+              <button className="search">Current Location</button>
+              <div className="search-form">
+                <button className="submit" type="submit" value="Search">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </button>
+                <input
+                  type="search"
+                  placeholder="search for a city"
+                  className="form-input"
+                  autoFocus="on"
+                  // onChange={handleCityChange}
+                />
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   );
+} else {
+  const apiKey = "ce144f0cf51fa43f03431f0488a36728";
+  let city = "Biarritz";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(handleResponse);
+  function handleResponse(response) {
+    console.log(response.data);
+    setTemp(response.data.main.temp);
+  }
+  return "loading...";
 }
