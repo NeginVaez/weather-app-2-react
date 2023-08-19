@@ -166,7 +166,7 @@ div .forecast-days {
   margin: 0 auto;
 }
 .search {
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 5px;
   width: 200px;
   height: 25px;
@@ -190,12 +190,8 @@ div .forecast-days {
   font-weight: 400;
   line-height: normal;
 }
-.form-control:focus {
-  box-shadow:  linear-gradient(
-    131deg,
-    rgba(144, 217, 224, 0.9) 0%,
-    rgba(84, 96, 230, 0.9) 100%
-  );
+input:focus {
+  box-shadow: red;
 }
 
 .submit {
