@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import WeatherInfo from "./weatherinfo";
-import axios from "axios";
+ import axios from "axios";
 import "./App.css";
 
 export default function Weather() {
@@ -14,7 +14,7 @@ export default function Weather() {
       temp: response.data.main.temp,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      // icon: response.data.weather[0].icon,
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
       // coordinates: response.data.coord,
@@ -57,7 +57,7 @@ export default function Weather() {
                 <ul>
                   <li>?%</li>
                   <li>{weatherData.humidity}%</li>
-                  <li>{weatherData.wind} km/h</li>
+                  <li>{Math.round(weatherData.wind)} km/h</li>
                 </ul>
               </div>
             </div>

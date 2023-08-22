@@ -1,6 +1,7 @@
 import React from "react";
 import RealDate from "./date";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemp from "./weatherTemp";
 import "./App.css";
 export default function WeatherInfo(props) {
   return (
@@ -8,7 +9,6 @@ export default function WeatherInfo(props) {
       <RealDate date={props.data.date} />
       <ul>
         <li className="date">20 Jun 2022</li>
-
         <li className="city">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,11 +32,10 @@ export default function WeatherInfo(props) {
           </svg>
           {props.data.city}
         </li>
-
         <li className="icon">
           <WeatherIcon code={props.data.icon} />
         </li>
-        <li className="temp">{Math.round(props.data.temp)}°C</li>
+        <WeatherTemp celsius={Math.round(props.data.temp)} />
         <li className="weather">{props.data.description}</li>
       </ul>
     </div>
