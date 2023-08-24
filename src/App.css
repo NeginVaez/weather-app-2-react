@@ -107,10 +107,10 @@ div .forecast {
   display: block;
   margin: 0 auto;
   display: flex;
-  background-color: #272e37;
+  /* background-color: #272e37; */
   justify-content: center;
   border-radius: 12px;
-  margin-top: 10px;
+  margin-top: 5px;
   width: 200px;
 }
 
@@ -139,27 +139,22 @@ div .forecast-days {
   font-size: 12px;
   font-weight: 400;
 }
-.forecast-temps {
+.forecast-temps,
+.forecast-temp {
   color: #fff;
   text-align: center;
   font-family: var(--main-font);
-  font-size: 12px;
+  font-size: 10px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 .forecast-temp {
   color: #000;
-  text-align: center;
-  font-family: var(--main-font);
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
 .forecast-icon {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   padding: 5px;
 }
 .location {
@@ -168,7 +163,7 @@ div .forecast-days {
   margin: 0 auto;
 }
 .search {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 5px;
   width: 200px;
   height: 25px;

@@ -12,8 +12,8 @@ export default function WeatherInfo(props) {
         <li className="city">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
+            width="20"
+            height="20"
             viewBox="0 0 27 27"
             fill="none"
           >
@@ -33,7 +33,7 @@ export default function WeatherInfo(props) {
           {props.data.city}
         </li>
         <li className="icon">
-          <WeatherIcon code={props.data.icon} />
+          <WeatherIcon code={props.data.icon} color="white" size="40" />
         </li>
         <WeatherTemp celsius={Math.round(props.data.temp)} />
         <li className="weather">{props.data.description}</li>
