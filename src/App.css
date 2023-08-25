@@ -21,7 +21,7 @@ div .col1 {
     136deg,
     rgba(136, 235, 239, 0.9) 0%,
     rgba(83, 91, 230, 0.9) 100%
-  );
+  ),  url("../src/beach100.png");
 }
 ul {
   list-style-type: none;
