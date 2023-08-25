@@ -8,7 +8,7 @@ export default function Forcast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forcast, setForcast] = useState(null);
   function load() {
-    const key = "a867e25f2d83db579421a57fd8e937ec";
+    const key = "701f06352d61835bc4fc894e7b084629";
     let lon = props.coordinates.lon;
     let lat = props.coordinates.lat;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
