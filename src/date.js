@@ -10,6 +10,23 @@ export default function RealDate(props) {
     "Friday",
     "Saturday",
   ];
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let year = props.date.getFullYear();
+  let theDate = props.date.getDate();
+  let mounth = months[props.date.getMonth()];
   let day = days[props.date.getDay()];
   let hours = props.date.getHours();
   if (hours < 10) {
@@ -25,7 +42,10 @@ export default function RealDate(props) {
       {day}{" "}
       <span className="hour">
         {hours}:{minutes}
-      </span>
+      </span>{" "}
+      <div className="date">
+        {theDate} {mounth} {year}
+      </div>
     </div>
   );
 }

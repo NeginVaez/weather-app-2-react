@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import WeatherInfo from "./weatherinfo";
+import { SpinnerRoundFilled } from "spinners-react";
+
 import Forcast from "./forcast";
 import axios from "axios";
 import "./App.css";
@@ -20,6 +22,7 @@ export default function Weather() {
       city: response.data.name,
       coordinates: response.data.coord,
       date: new Date(response.data.dt * 1000),
+      visibility: response.data.visibility / 1000,
     });
   }
 
@@ -36,6 +39,25 @@ export default function Weather() {
   function handleCityChange(event) {
     setCity(event.target.value);
   }
+  function currentPositionTemp() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      alert("Geolocation not supported");
+    }
+
+    function success(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const key = "a867e25f2d83db579421a57fd8e937ec";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
+      axios.get(apiUrl).then(handleResponse);
+    }
+
+    function error() {
+      alert("Unable to retrieve your location");
+    }
+  }
 
   if (weatherData.ready) {
     return (
@@ -47,17 +69,17 @@ export default function Weather() {
 
           <div className="col-md-6 col2">
             <div className="row">
-              <div className="details col-md-6">
+              <div className="details col-md">
                 <ul>
-                  <li>PRECIPITATION</li>
                   <li>HUMIDITY</li>
+                  <li>VISIBILITY</li>
                   <li>WIND</li>
                 </ul>
               </div>
-              <div className="api col-md-6">
+              <div className="api col-md">
                 <ul>
-                  <li>?%</li>
-                  <li>{weatherData.humidity}%</li>
+                  <li>{weatherData.humidity} %</li>
+                  <li>{weatherData.visibility} Km</li>
                   <li>{Math.round(weatherData.wind)} km/h</li>
                 </ul>
               </div>
@@ -65,7 +87,9 @@ export default function Weather() {
             <Forcast coordinates={weatherData.coordinates} />
             <div>
               <form className="location" onSubmit={handleSubmit}>
-                <button className="search">Current Location</button>
+                <button className="search" onClick={currentPositionTemp}>
+                  Current Location
+                </button>
                 <div className="search-form">
                   <button className="submit" type="submit" value="Search">
                     <svg
@@ -95,6 +119,6 @@ export default function Weather() {
     );
   } else {
     search();
-    return "Loading...";
+    return <SpinnerRoundFilled color="white" size="100" speed="50" />;
   }
 }

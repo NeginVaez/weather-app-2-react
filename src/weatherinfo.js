@@ -8,7 +8,6 @@ export default function WeatherInfo(props) {
     <div className="WeatherInfo">
       <RealDate date={props.data.date} />
       <ul>
-        <li className="date">20 Jun 2022</li>
         <li className="city">
           <svg
             xmlns="http://www.w3.org/2000/svg"
